@@ -1,4 +1,3 @@
-# CANOPEN参数
 bus:
   device: can0
   # loopback: false # socket should loop back messages
