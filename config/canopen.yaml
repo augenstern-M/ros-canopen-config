@@ -1,0 +1,64 @@
+# CANOPEN参数
+bus:
+  device: can0
+  # loopback: false # socket should loop back messages
+  # driver_plugin: can::SocketCANInterface
+  master_allocator: canopen::SimpleMaster::Allocator
+sync:
+  interval_ms: 10
+  overflow: 0
+# heartbeat:
+#   rate: 20
+#   msg: "77f#05"
+
+nodes:
+  base_link1_joint:
+    id: 1
+
+defaults: # optional, all defaults can be overwritten per node
+  eds_pkg: roadsense # optionals package  name for relative path
+  eds_file: "config/ISM_464CABN.eds" # path to EDS/DCF file
+  motor_allocator: canopen::Motor402::Allocator # select allocator for motor layer
+  # motor_layer: settings passed to motor layer (plugin-specific)
+  switching_state: 5 # (Operation_Enable), state for mode switching. Drive mode of operation from canopen_402 wiki
+  # pos_to_device: "rint(rad2deg(pos)*1000)" # rad -> mdeg
+  # pos_from_device: "deg2rad(obj6064)/1000" # actual position [mdeg] -> rad
+  # vel_to_device: "rint(rad2deg(vel)*1000)" # rad/s -> mdeg/s
+  # vel_from_device: "deg2rad(obj606C)/1000" # actual velocity [mdeg/s] -> rad/s
+  # eff_to_device: "rint(eff)" # just round to integer
+  # eff_from_device: "0" # unset
+  # dcf_overlay:
+  #   "1017" : "1000"
+  #   "6060" : "0x01"
+  #   # "1400sub1" : "0x00000201"
+  #   "1400sub2" : "0xfe"
+  #   "1600sub0" : "1"
+  #   # "1600sub1" : "0x60400010"
+  #   # "1401sub1" : "0x00000301"
+  #   "1401sub2" : "0xfe"
+  #   "1601sub0" : "1"
+  #   "1601sub1" : "0x60600008"
+  #   # "1402sub1" : "0x00000401"
+  #   "1402sub2" : "0xfe"
+  #   "1602sub0" : "1"
+  #   "1602sub1" : "0x607a0020"
+  #   # "1403sub1" : "0x00000501"
+  #   "1403sub2" : "0xfe"
+  #   "1603sub0" : "1"
+  #   "1603sub1" : "0x60ff0020"
+  #   # "1800sub1" : "0x00000181"
+  #   "1800sub2" : "0xfe"
+  #   "1a00sub0" : "1"
+  #   # "1a00sub1" : "0x60410010"
+  #   # "1801sub1" : "0x00000281"
+  #   "1801sub2" : "0xfe"
+  #   "1a01sub0" : "1"
+  #   "1a01sub1" : "0x60610008"
+  #   # "1802sub1" : "0x00000381"
+  #   "1802sub2" : "0x01"
+  #   "1a02sub0" : "1"
+  #   "1a02sub1" : "0x60640020"
+  #   # "1803sub1" : "0x00000481"
+  #   "1803sub2" : "0x01"
+  #   "1a03sub0" : "1"
+  #   "1a03sub1" : "0x606c0020"
